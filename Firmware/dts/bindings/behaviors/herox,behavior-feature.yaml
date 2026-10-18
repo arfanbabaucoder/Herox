@@ -1,0 +1,4 @@
+description: Herox feature control
+compatible: "herox,behavior-feature"
+include: one_param.yaml
+

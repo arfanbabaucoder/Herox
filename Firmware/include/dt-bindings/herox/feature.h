@@ -1,0 +1,16 @@
+#pragma once
+
+#define NX_RGB_TOGGLE 0
+#define NX_RGB_EFFECT_NEXT 1
+#define NX_RGB_EFFECT_PREVIOUS 2
+#define NX_RGB_HUE_UP 3
+#define NX_RGB_HUE_DOWN 4
+#define NX_RGB_BRIGHTNESS_UP 5
+#define NX_RGB_BRIGHTNESS_DOWN 6
+#define NX_RGB_SPEED_UP 7
+#define NX_RGB_SPEED_DOWN 8
+#define NX_HAPTIC_TOGGLE 9
+#define NX_HAPTIC_UP 10
+#define NX_HAPTIC_DOWN 11
+#define NX_HAPTIC_TEST 12
+

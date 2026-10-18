@@ -1,0 +1,6 @@
+zephyr_library_named(herox_x1)
+zephyr_library_include_directories(include ${APPLICATION_SOURCE_DIR}/include)
+zephyr_library_sources_ifdef(CONFIG_HEROX_X1_FEATURES src/herox_rgb.c)
+zephyr_library_sources_ifdef(CONFIG_HEROX_X1_FEATURES src/herox_haptics.c)
+zephyr_library_sources_ifdef(CONFIG_HEROX_X1_FEATURES src/herox_host_status.c)
+zephyr_library_sources_ifdef(CONFIG_HEROX_X1_FEATURES src/behavior_herox_feature.c)

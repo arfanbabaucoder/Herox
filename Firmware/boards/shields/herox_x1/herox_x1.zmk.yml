@@ -1,0 +1,10 @@
+file_format: "1"
+id: herox_x1
+name: Herox
+type: shield
+requires: [xiao]
+features:
+  - keys
+  - encoder
+  - underglow
+

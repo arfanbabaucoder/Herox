@@ -1,0 +1,228 @@
+#include <dt-bindings/led/led.h>
+#include <dt-bindings/zmk/hid_indicators.h>
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/i2c/i2c.h>
+#include "herox_x1-layouts.dtsi"
+
+&layout_ansi_104 {
+    transform = <&default_transform>;
+    kscan = <&kscan0>;
+};
+
+&pinctrl {
+    herox_spi2_default: herox_spi2_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 2)>;
+        };
+    };
+
+    herox_spi2_sleep: herox_spi2_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 1, 13)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 2)>;
+            low-power-enable;
+        };
+    };
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,physical-layout = &layout_ansi_104;
+        zmk,battery = &fuel_gauge;
+        zephyr,led-strip = &key_leds;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        rows = <9>;
+        columns = <13>;
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11) RC(0,12)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12)
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,8) RC(3,9) RC(3,10) RC(3,11) RC(3,12)
+            RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(4,6) RC(4,7) RC(4,8) RC(4,9) RC(4,10) RC(4,11) RC(4,12)
+            RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5) RC(5,6) RC(5,7) RC(5,8) RC(5,9) RC(5,10) RC(5,11) RC(5,12)
+            RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4) RC(6,5) RC(6,6) RC(6,7) RC(6,8) RC(6,9) RC(6,10) RC(6,11) RC(6,12)
+            RC(7,0) RC(7,1) RC(7,2) RC(7,3) RC(7,4) RC(7,5) RC(7,6) RC(7,7) RC(7,8) RC(7,9) RC(7,10) RC(7,11) RC(7,12)
+            RC(8,0)
+        >;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-composite";
+        rows = <9>;
+        columns = <13>;
+        wakeup-source;
+
+        matrix {
+            kscan = <&key_matrix>;
+        };
+
+        encoder_button {
+            kscan = <&encoder_switch>;
+            row-offset = <8>;
+        };
+    };
+
+    key_matrix: key_matrix {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "row2col";
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+        debounce-scan-period-ms = <1>;
+        wakeup-source;
+
+        row-gpios
+            = <&row_expander 0 GPIO_ACTIVE_LOW>
+            , <&row_expander 1 GPIO_ACTIVE_LOW>
+            , <&row_expander 2 GPIO_ACTIVE_LOW>
+            , <&row_expander 3 GPIO_ACTIVE_LOW>
+            , <&row_expander 4 GPIO_ACTIVE_LOW>
+            , <&row_expander 5 GPIO_ACTIVE_LOW>
+            , <&row_expander 6 GPIO_ACTIVE_LOW>
+            , <&row_expander 7 GPIO_ACTIVE_LOW>
+            ;
+
+        col-gpios
+            = <&col_expander 0 GPIO_ACTIVE_LOW>
+            , <&col_expander 1 GPIO_ACTIVE_LOW>
+            , <&col_expander 2 GPIO_ACTIVE_LOW>
+            , <&col_expander 3 GPIO_ACTIVE_LOW>
+            , <&col_expander 4 GPIO_ACTIVE_LOW>
+            , <&col_expander 5 GPIO_ACTIVE_LOW>
+            , <&col_expander 6 GPIO_ACTIVE_LOW>
+            , <&col_expander 7 GPIO_ACTIVE_LOW>
+            , <&col_expander 8 GPIO_ACTIVE_LOW>
+            , <&col_expander 9 GPIO_ACTIVE_LOW>
+            , <&col_expander 10 GPIO_ACTIVE_LOW>
+            , <&col_expander 11 GPIO_ACTIVE_LOW>
+            , <&col_expander 12 GPIO_ACTIVE_LOW>
+            ;
+    };
+
+    encoder_switch: encoder_switch {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+        wakeup-source;
+    };
+
+    media_encoder: media_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        steps = <80>;
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&media_encoder>;
+        triggers-per-rotation = <20>;
+    };
+
+    status_leds: status_leds {
+        compatible = "gpio-leds";
+
+        caps_lock_led: caps_lock_led {
+            gpios = <&row_expander 8 GPIO_ACTIVE_LOW>;
+        };
+
+        num_lock_led: num_lock_led {
+            gpios = <&row_expander 9 GPIO_ACTIVE_LOW>;
+        };
+
+        host_1_led: host_1_led {
+            gpios = <&row_expander 10 GPIO_ACTIVE_LOW>;
+        };
+
+        host_2_led: host_2_led {
+            gpios = <&row_expander 11 GPIO_ACTIVE_LOW>;
+        };
+
+        host_3_led: host_3_led {
+            gpios = <&row_expander 12 GPIO_ACTIVE_LOW>;
+        };
+    };
+
+    indicators {
+        compatible = "zmk,indicator-leds";
+
+        caps_lock_indicator: caps_lock {
+            indicator = <HID_INDICATOR_CAPS_LOCK>;
+            leds = <&caps_lock_led>;
+        };
+
+        num_lock_indicator: num_lock {
+            indicator = <HID_INDICATOR_NUM_LOCK>;
+            leds = <&num_lock_led>;
+        };
+    };
+
+    nx_feature: nx_feature {
+        compatible = "herox,behavior-feature";
+        #binding-cells = <1>;
+    };
+};
+
+&i2c1 {
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
+
+    row_expander: gpio@20 {
+        compatible = "nxp,pca9555";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        status = "okay";
+    };
+
+    col_expander: gpio@21 {
+        compatible = "nxp,pca9555";
+        reg = <0x21>;
+        gpio-controller;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        int-gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
+
+    fuel_gauge: max17048@36 {
+        compatible = "zmk,maxim-max17048";
+        reg = <0x36>;
+        status = "okay";
+    };
+
+    haptic: drv2605@5a {
+        compatible = "ti,drv2605";
+        reg = <0x5a>;
+        actuator-mode = "LRA";
+        feedback-brake-factor = "3X";
+        loop-gain = "HIGH";
+        vib-rated-mv = <2500>;
+        vib-overdrive-mv = <2500>;
+        status = "okay";
+    };
+};
+
+&spi2 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&herox_spi2_default>;
+    pinctrl-1 = <&herox_spi2_sleep>;
+    pinctrl-names = "default", "sleep";
+    status = "okay";
+
+    key_leds: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+        reg = <0>;
+        spi-max-frequency = <4000000>;
+        chain-length = <104>;
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    };
+};

@@ -1,0 +1,7 @@
+include:
+  - board: xiao_ble//zmk
+    shield: herox_x1
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    artifact-name: Herox
+

@@ -1,0 +1,3 @@
+config SHIELD_HEROX_X1
+    def_bool $(shields_list_contains,herox_x1)
+

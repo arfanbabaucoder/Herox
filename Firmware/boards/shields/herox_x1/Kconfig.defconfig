@@ -1,0 +1,12 @@
+if SHIELD_HEROX_X1
+
+config ZMK_KEYBOARD_NAME
+    default "Herox"
+
+config USB_DEVICE_PRODUCT
+    default "Herox"
+
+config USB_DEVICE_MANUFACTURER
+    default "Herox"
+
+endif

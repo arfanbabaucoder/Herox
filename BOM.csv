@@ -1,0 +1,26 @@
+﻿Part,Qty,Link,Provider,Price(Rupees)
+PCB,1,https://cart.jlcpcb.com/quote,JLCPCB,7764.48
+Seeed Studio XIAO nRF52840,1,https://www.amazon.in/Seeed-Studio-XIAO-Nordic-nRF52840/dp/B09T9VVQG7,Amazon,2576.03
+ 100 nF 0603 X7R 16 V MLCC,100,https://www.amazon.in/ELECTRONICS-100pcs-16VDC-Capacitors-Murata/dp/B0BB9CWVBQ,Amazon,380
+ 10 µF 0805 X5R 25 V MLCC,50,https://www.amazon.in/10uF-Ceramic-Capacitor-50pcs-TCC0805X5R106K250FT/dp/B0GCNMKVJ5,Amazon,269
+ 47 µF 0805 6.3 V MLCC,5,https://www.amazon.in/47uF-0805-6-3V-Ceramic-Capacitor/dp/B0C24D9PXV,Amazon,129
+ 1 µF 0603 50 V MLCC (Robu pack of 5),20,https://robu.in/product/c0603c104k5ractu-kemet-cap-smd-mlcc-0-1%c2%b5f-50-v-0603-pack-of-5/,Robu,74
+ 1N4148W SOD-123 diodes,150,https://www.amazon.in/1N4148-DIODE-Switching-SOD-123-1N4148W/dp/B0F99S7D4S,Amazon,897
+ 1206L110/6NR 1.1 A resettable fuse,2,https://robu.in/product/1206l110-6nr-lute-6v-2-2a-100a-1-1a-1206-resettable-rohs/,Robu,16
+ JST S2B-PH-K(LF)(SN) right-angle 2-pin PCB header ,5,https://robu.in/product/s2b-ph-klfsn-jst-1x2p-2p-ph-tin-2-25%e2%84%8385%e2%84%83-2a-1-2mm-brass-bend-insert-push-pullp2mm-wire-to-board-connector-rohs/,Robu,65
+ LTST-C193TBKT-5A blue 0603 status LED,1,https://robu.in/product/ltst-c193tbkt-5a-lite-on-5ma-15mcd-water-clear-20%25e2%2584%258380%25e2%2584%2583-465nm475nm-blue-130-76mw-2-8v-0603-led-indication-discrete-rohs/,Robu,1.64
+ PCA9555DWR SOIC-24 I/O expander (footprint-compatible substitute for the PCB's non-orderable TCA9555DW value),2,https://www.lioncircuits.com/parts/PCA9555DWR,LionCircuits,898.53
+" MAX17048G+T10 fuel-gauge IC, TDFN-8",1,https://www.lioncircuits.com/parts/MAX17048G%2BT10,LionCircuits,369.86
+" DRV2605LDGSR haptic-driver IC, VSSOP-10",1,https://www.lioncircuits.com/parts/DRV2605LDGSR,LionCircuits,276.33
+" 74LVC1G125GW,125 logic buffer, TSSOP-5 (uses 1; supplier MOQ 15)",15,https://www.lioncircuits.com/parts/74LVC1G125GW%2C125,LionCircuits,101.25
+ LTST-C193KGKT-5A green 0603 status LED (uses 2; footprint-compatible replacement for out-of-stock XL-1608UGC-04; supplier MOQ 5),5,https://www.lioncircuits.com/parts/LTST-C193KGKT-5A,LionCircuits,109.8
+ 40-pin 2.54 mm breakaway male header strip,10,https://www.amazon.in/Electrobot-2-54MM-Male-Header-Strip/dp/B07NRV7WQY,Amazon,169
+" Chanzon 0603 resistor kit, 60 values, 1200 pieces",1,https://www.amazon.in/Chanzon-Resistor-Tolerance-Resistors-Certificated/dp/B08RYNWTT9,Amazon,899
+ Akko V3 Creamy Blue Pro 5-pin MX switches,135,https://amzn.in/d/082YNpkE,Amazon,11397
+ 104/108-key ANSI PBT keycap set,1,https://www.amazon.in/ETZIN-PBT-Mechanical-Universal-Compatiability/dp/B0BNKVHM7Q,Amazon,1412
+ DUROCK V3 100% PCB-mount stabilizer kit (7×2U + 1×6.25U),1,https://www.amazon.in/DUROCK-Stabilizer-Stabilizers-Mechanical-Keyboards/dp/B0B2RSKQMC,Amazon,3941.4
+ JST-PH 2.0 mm 2-pin silicone-wire pigtails,10,https://www.amazon.in/Villcron-JST-PH-2-0mm-Connector-Silicone/dp/B0GPQNFWWV,Amazon,139
+ USB-A to USB-C 1 m data cable,1,https://www.amazon.in/Ambrane-RCT-10-Cable-Black/dp/B0CJJQLDS9,Amazon,99
+ SK6812 MINI-E,1,https://www.ubuy.co.in/productjp/TLZUPDAH6-50pcs-sk6812-mini-e-rgb-same-as-ws2812b-sk6812-3228-pixels-led-chip-individually-addressable-full-color-dc5v?variation=B0BR3DJDF9,Ubuy,4098
+ Cad Model printing (Using HCB),1,HCB,HCB,300
+Total,,,,36382.32

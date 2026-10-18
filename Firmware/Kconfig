@@ -1,0 +1,26 @@
+menuconfig HEROX_X1_FEATURES
+    bool "Herox X1 hardware features"
+    default y if SHIELD_HEROX_X1
+    select LED
+    select LED_STRIP
+    select HAPTICS
+    select SETTINGS
+
+if HEROX_X1_FEATURES
+
+config HEROX_X1_RGB_CURRENT_LIMIT_MA
+    int "Maximum per-key RGB current"
+    default 400
+    range 100 450
+
+config HEROX_X1_RGB_FRAME_MS
+    int "Per-key RGB frame interval"
+    default 25
+    range 16 100
+
+config HEROX_X1_HAPTIC_DEFAULT_LEVEL
+    int "Default haptic level"
+    default 2
+    range 0 3
+
+endif
